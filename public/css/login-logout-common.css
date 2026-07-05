@@ -1,0 +1,25 @@
+.auth-bg-custom {
+    background-image: url(../assets/images/bg-landing.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.auth-bg-custom .card {
+    background-color: #1e40af;
+
+}
+.auth-bg-custom .form-label {
+    color: #fff!important;
+}
+.auth-bg-custom .text-muted {
+    color: rgb(204, 204, 204)!important;
+}
+.auth-bg-custom a.underline  {
+    color: #fff!important;
+}
+
+@media (max-width: 480px) {
+   .auth-bg-custom .btn {
+width: 100%;
+margin: 1rem 0!important;
+   } 
+}

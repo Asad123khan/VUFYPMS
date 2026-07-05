@@ -1,0 +1,345 @@
+/* ====================================
+   Global Styling
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #64748b;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --background: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --text-light: #ccc;
+    --text-white: #ffffff;
+    --hover-light: #f0f0f0;
+    --hover-danger-light: #ffe5e5;
+    --sidebar-bg: #212529;
+}
+
+body {
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.navbar {
+    flex-shrink: 0;
+}
+.navbar .btn-log-reg {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #1e40af!important;
+    border-radius: 8px;
+    margin-right: 8px;
+    width: 100px;
+    text-align: center;
+}
+
+.navbar .btn-log-reg:hover{
+    background-color: #1e40af;
+    color: #fff!important;
+    border: 1px solid #1e40af;
+}
+.main-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ====================================
+   Hero Strip
+   ==================================== */
+
+.hero-strip {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-white);
+    border-radius: 1rem;
+}
+
+.hero-strip--landing {
+    background-image: url(../assets/images/bg-landing.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-strip--landing >div {
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ====================================
+   User Dropdown Styling
+   ==================================== */
+
+.dropdown-menu {
+    min-width: 220px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    animation: fadeIn 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-light);
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: var(--hover-danger-light) !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====================================
+   Sidebar Styling
+   ==================================== */
+
+.sidebar {
+    position: absolute;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--sidebar-bg) !important;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
+    z-index: 1030;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar.active~main {
+    width: calc(100% - 250px);
+}
+
+/* Sidebar User Info */
+.user-info {
+    flex-shrink: 0;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.sidebar-nav .nav-link {
+    color: var(--text-light);
+    padding: 10px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    padding-left: 20px;
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: var(--primary);
+    color: var(--text-white);
+    border-left: 4px solid #fff;
+}
+
+/* Webkit Scrollbar */
+.sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ====================================
+   Toggle Button
+   ==================================== */
+
+#sidebarToggle {
+    position: fixed;
+    top: 80px;
+    left: 15px;
+    z-index: 1040;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#sidebarToggle:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Close button inside sidebar */
+.sidebar-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+    display: none;
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.sidebar-close-btn:hover {
+    color: var(--text-white);
+}
+
+.sidebar.active .sidebar-close-btn {
+    display: block;
+}
+.card {
+    height: -webkit-fill-available;
+}
+/* ====================================
+   Responsive Design
+   ==================================== */
+
+@media (min-width: 768px) {
+    
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-wrapper {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+        gap: 0;
+    }
+
+    .navbar {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    body.no-sidebar .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    body.no-sidebar .navbar {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #sidebarToggle {
+        display: none !important;
+    }
+
+    .sidebar-close-btn {
+        display: none !important;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .navbar .btn-log-reg {
+        margin-bottom: 4px;
+        width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .sidebar.active~main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-strip--landing {
+        height: 250px;
+    }
+    .hero-strip--landing >div h1 {
+        font-size: 14px;
+    }
+    .hero-strip--landing >div p {
+        font-size: 12px;
+    }
+    .card-header.bg-white.d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    gap:10px;
+    }
+}
